@@ -23,7 +23,7 @@ namespace WebAPI.Controllers
 
         }
 
-        public List<Users> Post() {
+        public List<Users> Get() {
 
             return this.context.Users.ToList();
 
