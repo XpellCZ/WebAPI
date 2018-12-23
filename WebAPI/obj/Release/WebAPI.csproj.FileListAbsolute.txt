@@ -99,3 +99,6 @@ C:\Users\Marek\Documents\GitHub\PonomaMess\WebAPI\WebAPI\obj\Release\WebAPI.cspr
 C:\Users\Marek\Documents\GitHub\PonomaMess\WebAPI\WebAPI\obj\Release\WebAPI.csproj.CopyComplete
 C:\Users\Marek\Documents\GitHub\PonomaMess\WebAPI\WebAPI\obj\Release\WebAPI.dll
 C:\Users\Marek\Documents\GitHub\PonomaMess\WebAPI\WebAPI\obj\Release\WebAPI.pdb
+C:\Users\Marek\Documents\GitHub\PonomaMess\WebAPI\WebAPI\bin\System.Web.Cors.dll
+C:\Users\Marek\Documents\GitHub\PonomaMess\WebAPI\WebAPI\bin\System.Web.Http.Cors.dll
+C:\Users\Marek\Documents\GitHub\PonomaMess\WebAPI\WebAPI\bin\System.Web.Http.Cors.xml
