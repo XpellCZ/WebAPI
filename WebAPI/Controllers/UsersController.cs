@@ -30,5 +30,24 @@ namespace WebAPI.Controllers
 
         }
 
+        public Users Get(string email)
+        {
+            Users foundUser=null;
+            List<Users> users = this.context.Users.ToList();
+
+            foreach(Users user in users){
+
+                if (user.Email == email)
+                {
+                    foundUser = user;
+                    return foundUser;
+                }
+
+
+            }
+            return foundUser;
+        }
+
+
     }
 }
