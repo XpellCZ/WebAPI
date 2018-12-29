@@ -11,8 +11,9 @@ namespace WebAPI.Models
     public class TestContext : DbContext
     {
         public DbSet<Users> Users { get; set; }
-
-
+        public DbSet<GroupsRelations> GrRelations { get; set; }
+        public DbSet<Groups> Groups { get; set; }
+        public DbSet<Texts> Texts { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
