@@ -23,6 +23,25 @@ namespace WebAPI.Controllers
 
         }
 
+
+        //Send the object in JSON format.
+        public void Post([FromBody]Users newUser)
+        {
+            Users user = new Users();
+            user.ImgPath = newUser.ImgPath;
+            user.Online = newUser.Online;
+            user.Description = newUser.Description;
+            user.Email = newUser.Email;
+            user.FullName = newUser.FullName;
+            user.Password = newUser.Password;
+            user.Username = newUser.Username;
+
+
+            this.context.Users.Add(user);
+            this.context.SaveChanges();
+        }
+
+
         public List<Users> Get() {
 
             return this.context.Users.ToList();
@@ -48,6 +67,27 @@ namespace WebAPI.Controllers
             return foundUser;
         }
 
+        public Users Get(int Id)
+        {
+            Users foundUser = this.context.Users.Find(Id);
+            //List<Users> users = this.context.Users.ToList();
+
+            //foreach (Users user in users)
+            //{
+
+            //    if (user.Id == Id)
+            //    {
+            //        foundUser = user;
+            //        return foundUser;
+            //    }
+
+
+            //}
+            return foundUser;
+        }
+
+
+       
 
     }
 }

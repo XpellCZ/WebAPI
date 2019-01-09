@@ -15,6 +15,7 @@ namespace WebAPI.Models
         public string Password { get; set; }
         public string Description { get; set; }
         public string ImgPath { get; set; }
+        public bool Online { get; set; }
 
     }
 }

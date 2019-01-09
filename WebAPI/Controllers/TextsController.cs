@@ -43,7 +43,7 @@ namespace WebAPI.Controllers
         }
 
         //Send the object in JSON format.
-        public void Post(Texts newText)
+        public void Post([FromBody]Texts newText)
         {
             Texts text = new Texts();
             text.Text = newText.Text;
