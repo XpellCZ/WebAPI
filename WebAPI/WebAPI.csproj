@@ -182,6 +182,9 @@
     <Compile Include="Controllers\GroupsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MembersController.cs" />
+    <Compile Include="Controllers\OfflineController.cs" />
+    <Compile Include="Controllers\OnlineController.cs" />
+    <Compile Include="Controllers\SeenbyController.cs" />
     <Compile Include="Controllers\TextsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -190,6 +193,7 @@
     </Compile>
     <Compile Include="Models\Groups.cs" />
     <Compile Include="Models\GroupsRelations.cs" />
+    <Compile Include="Models\SeenBy.cs" />
     <Compile Include="Models\TestContext.cs" />
     <Compile Include="Models\Texts.cs" />
     <Compile Include="Models\Users.cs" />
@@ -228,6 +232,7 @@
     <None Include="Properties\PublishProfiles\Ponoma2 - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\Ponoma2 - Web Deploy1.pubxml" />
     <None Include="Properties\PublishProfiles\Ponoma2 - Web Deploy2.pubxml" />
+    <None Include="Properties\PublishProfiles\Ponoma2 - Web Deploy3.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
