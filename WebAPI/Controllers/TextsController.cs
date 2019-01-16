@@ -45,6 +45,44 @@ namespace WebAPI.Controllers
         //Send the object in JSON format.
         public void Post([FromBody]Texts newText)
         {
+            int groupId = newText.GroupId;
+            List<int> Members = new List<int>();
+            List<GroupsRelations> gr = this.context.GrRelations.ToList();
+            List<SeenBy> sBs = this.context.SeenBys.ToList();
+
+            foreach (GroupsRelations gp in gr)
+            {
+                if (gp.GroupId == groupId)
+                {
+                    Members.Add(gp.UserId);
+                }
+
+
+            }
+
+            for (int x=0; x < Members.Count(); x++)
+            {
+                SeenBy temp = new SeenBy();
+                bool found=false;
+                temp.UserId = Members[x];
+                temp.GroupId = groupId;
+
+                foreach(SeenBy sn in sBs)
+                {
+                    if (sn.UserId == temp.UserId && sn.GroupId == temp.GroupId)
+                    {
+                        found = true;
+                        break;
+                    }
+
+                }
+                if (!found)
+                {
+                    this.context.SeenBys.Add(temp);
+                }
+            }
+
+
             Texts text = new Texts();
             text.Text = newText.Text;
             text.Attachment = newText.Attachment;

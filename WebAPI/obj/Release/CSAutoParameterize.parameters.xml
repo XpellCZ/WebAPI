@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
   <parameter name="TestContext-Web.config Connection String" description="TestContext Připojovacá řetězec v souboru web.config použitý aplikací pro přístup k databázi." defaultValue="Server=167.99.240.247;Database=ponomamess;Uid=ponoma2;Pwd=Lentilka982;sslmode=None;convert zero datetime=True" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\Marek\\Documents\\GitHub\\PonomaMess\\WebAPI\\WebAPI\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='TestContext']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Marek\\Documents\\GitHub\\WebAPI\\WebAPI\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='TestContext']/@connectionString" />
   </parameter>
 </parameters>
