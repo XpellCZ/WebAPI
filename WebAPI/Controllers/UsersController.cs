@@ -27,17 +27,58 @@ namespace WebAPI.Controllers
         //Send the object in JSON format.
         public void Post([FromBody]Users newUser)
         {
-            Users user = new Users();
-            user.ImgPath = newUser.ImgPath;
-            user.Online = newUser.Online;
-            user.Description = newUser.Description;
-            user.Email = newUser.Email;
-            user.FullName = newUser.FullName;
-            user.Password = newUser.Password;
-            user.Username = newUser.Username;
+            List<Users> usersFromDb = this.context.Users.ToList();
+            bool exists = false;
+            bool edit = false;
+
+            foreach( Users usr in usersFromDb)
+            {
+                if (usr.Email == newUser.Email || usr.Username == newUser.Username)
+                {
+                    exists = true;
+                }
+
+                if (usr.Id == newUser.Id)
+                {
+                    edit = true;
+                }
 
 
-            this.context.Users.Add(user);
+            }
+
+
+
+            if (!exists)
+            {
+
+                Users user = new Users();
+                user.ImgPath = newUser.ImgPath;
+                user.Online = newUser.Online;
+                user.Description = newUser.Description;
+                user.Email = newUser.Email;
+                user.FullName = newUser.FullName;
+                user.Password = newUser.Password;
+                user.Username = newUser.Username;
+
+
+                this.context.Users.Add(user);
+
+            } else if (edit)
+            {
+                Users user = this.context.Users.Find(newUser.Id);
+                user.ImgPath = newUser.ImgPath;
+                user.Online = newUser.Online;
+                user.Description = newUser.Description;
+                user.Email = newUser.Email;
+                user.FullName = newUser.FullName;
+                user.Password = newUser.Password;
+                user.Username = newUser.Username;
+
+
+
+
+            }
+
             this.context.SaveChanges();
         }
 

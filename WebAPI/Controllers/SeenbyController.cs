@@ -42,6 +42,27 @@ namespace WebAPI.Controllers
             return result;
 
         }
+        //Get list of SeenBys filtered by GroupId and UserId
+        public List<SeenBy> Get(int GroupId,int UserId)
+        {
+
+            List<SeenBy> seen = this.context.SeenBys.ToList();
+            List<SeenBy> result = new List<SeenBy>();
+
+            foreach (SeenBy sn in seen)
+            {
+                if (sn.GroupId == GroupId&&sn.UserId==UserId)
+                {
+                    result.Add(sn);
+                }
+
+
+            }
+
+            return result;
+
+        }
+
 
         // Post SeenBy as JSON
         public void Post(SeenBy sn)
