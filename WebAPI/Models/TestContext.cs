@@ -15,6 +15,10 @@ namespace WebAPI.Models
         public DbSet<Groups> Groups { get; set; }
         public DbSet<Texts> Texts { get; set; }
         public DbSet<SeenBy> SeenBys { get; set; }
+        public DbSet<FriendsRelations> Friends { get; set; }
+        public DbSet<FriendRequest> FriendReq { get; set; }
+
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

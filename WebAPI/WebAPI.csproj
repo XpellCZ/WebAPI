@@ -180,11 +180,14 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\DelseenController.cs" />
+    <Compile Include="Controllers\FriendreqController.cs" />
+    <Compile Include="Controllers\FriendsController.cs" />
     <Compile Include="Controllers\GroupsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MembersController.cs" />
     <Compile Include="Controllers\OfflineController.cs" />
     <Compile Include="Controllers\OnlineController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\SeenbyController.cs" />
     <Compile Include="Controllers\TextsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
@@ -192,6 +195,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\FriendRequest.cs" />
+    <Compile Include="Models\FriendsRelations.cs" />
     <Compile Include="Models\Groups.cs" />
     <Compile Include="Models\GroupsRelations.cs" />
     <Compile Include="Models\SeenBy.cs" />

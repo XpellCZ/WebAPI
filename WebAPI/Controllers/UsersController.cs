@@ -30,6 +30,8 @@ namespace WebAPI.Controllers
             List<Users> usersFromDb = this.context.Users.ToList();
             bool exists = false;
             bool edit = false;
+            Random rnd = new Random();
+            int uniqId = rnd.Next(100000,999999);
 
             foreach (Users usr in usersFromDb)
             {
@@ -50,6 +52,13 @@ namespace WebAPI.Controllers
 
             if (exists==false&&edit==false)
             {
+                while (!(this.checkRandom(uniqId)))
+                {
+                    uniqId = rnd.Next(100000, 999999);
+                }
+
+
+
 
                 Users user = new Users();
                 user.ImgPath = newUser.ImgPath;
@@ -59,7 +68,7 @@ namespace WebAPI.Controllers
                 user.FullName = newUser.FullName;
                 user.Password = newUser.Password;
                 user.Username = newUser.Username;
-
+                user.UniId = uniqId;
 
                 this.context.Users.Add(user);
 
@@ -127,6 +136,28 @@ namespace WebAPI.Controllers
             return foundUser;
         }
 
+        
+
+
+        private bool checkRandom(int rnd)
+        {
+            List<Users> userList = this.context.Users.ToList();
+            bool result = true;
+
+            foreach (Users usr in userList)
+            {
+                if (usr.UniId == rnd)
+                {
+                    result = false;
+                    break;
+                }
+
+
+            }
+
+            return result;
+
+        }
 
        
 

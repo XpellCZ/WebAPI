@@ -40,6 +40,40 @@ namespace WebAPI.Controllers
 
         }
 
+        public List<Groups> Get(int Id,bool More)
+        {
+            List<GroupsRelations> grRelations = this.context.GrRelations.ToList();
+            List<Groups> userGroups = new List<Groups>();
+
+            foreach (GroupsRelations gr in grRelations)
+            {
+                int count = 0;
+
+                foreach(GroupsRelations gre in grRelations)
+                {
+                    if (gre.GroupId == gr.GroupId)
+                    {
+                        count++;
+                    }
+                }
+
+
+                if (gr.UserId == Id&&count>2&&More==true)
+                {
+                    userGroups.Add(this.context.Groups.Find(gr.GroupId));
+                } else if(gr.UserId == Id&&count==2&&More == false)
+                {
+                    userGroups.Add(this.context.Groups.Find(gr.GroupId));
+                }
+
+            }
+
+            return userGroups;
+
+        }
+
+
+
         //Send the object in JSON format.
         public void Post(Groups newGroup)
         {
