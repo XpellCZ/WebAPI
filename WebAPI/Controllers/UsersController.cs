@@ -31,7 +31,7 @@ namespace WebAPI.Controllers
             bool exists = false;
             bool edit = false;
 
-            foreach( Users usr in usersFromDb)
+            foreach (Users usr in usersFromDb)
             {
                 if (usr.Email == newUser.Email || usr.Username == newUser.Username)
                 {
@@ -48,7 +48,7 @@ namespace WebAPI.Controllers
 
 
 
-            if (!exists)
+            if (exists==false&&edit==false)
             {
 
                 Users user = new Users();
@@ -63,7 +63,7 @@ namespace WebAPI.Controllers
 
                 this.context.Users.Add(user);
 
-            } else if (edit)
+            } else if (edit==true&&exists==false)
             {
                 Users user = this.context.Users.Find(newUser.Id);
                 user.ImgPath = newUser.ImgPath;
