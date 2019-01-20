@@ -10,6 +10,7 @@ namespace WebAPI.Models
         public int Id { get; set; }
         public int FirstUser { get; set; }
         public int SecondUser { get; set; }
+        public int GroupId { get; set; }
 
     }
 }

@@ -12,7 +12,7 @@ namespace WebAPI.Models
         public int SendToUserId { get; set; }
         public int SendByUserId { get; set; }
         public bool Accepted { get; set; }
-        public int GroupId { get; set; }
+        
 
     }
 }
