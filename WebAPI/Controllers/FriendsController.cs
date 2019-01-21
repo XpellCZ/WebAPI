@@ -54,6 +54,27 @@ namespace WebAPI.Controllers
 
         }
 
+        public void Get(int MyId, int FriendId, bool Delete)
+        {
+            List<FriendsRelations> rels = this.context.Friends.ToList();
+
+            foreach (FriendsRelations rel in rels)
+            {
+                if ((rel.FirstUser == MyId && rel.SecondUser == FriendId && Delete == true) || (rel.FirstUser == FriendId && rel.SecondUser == MyId && Delete == true))
+                {
+                    this.context.Friends.Remove(rel);
+                    break;
+
+                }
+
+
+            }
+
+            this.context.SaveChanges();
+
+
+        }
+
 
 
     }

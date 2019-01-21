@@ -35,7 +35,7 @@ namespace WebAPI.Controllers
 
             foreach (Users usr in usersFromDb)
             {
-                if (usr.Email == newUser.Email || usr.Username == newUser.Username)
+                if ((usr.Email == newUser.Email || usr.Username == newUser.Username) &&(newUser.Id!=usr.Id))
                 {
                     exists = true;
                 }

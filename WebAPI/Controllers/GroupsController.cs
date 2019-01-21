@@ -72,7 +72,33 @@ namespace WebAPI.Controllers
 
         }
 
+        public void Get(bool Delete, int GroupId)
+        {
+            List<Groups> userGroups = this.context.Groups.ToList();
+            List<GroupsRelations> grRelations = this.context.GrRelations.ToList();
 
+            foreach (Groups gr in userGroups)
+            {
+                if (gr.Id == GroupId && Delete == true)
+                {
+                    this.context.Groups.Remove(gr);
+                    break;
+                }
+
+            }
+
+            foreach(GroupsRelations rel in grRelations)
+            {
+                if (rel.GroupId == GroupId)
+                {
+                    this.context.GrRelations.Remove(rel);
+                }
+
+
+            }
+
+            this.context.SaveChanges();
+        }
 
         //Send the object in JSON format.
         public void Post(Groups newGroup)

@@ -55,5 +55,27 @@ namespace WebAPI.Controllers
 
 
         }
+
+        public void Get(int GroupId, int UserId, bool Delete)
+        {
+
+            List<GroupsRelations> grRelations = this.context.GrRelations.ToList();
+
+            foreach( GroupsRelations gr in grRelations)
+            {
+
+                if (gr.GroupId == GroupId && gr.UserId == UserId && Delete == true)
+                {
+                    this.context.GrRelations.Remove(gr);
+                    break;
+                }
+
+            }
+
+            this.context.SaveChanges();
+
+
+        }
+
     }
 }
