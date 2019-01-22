@@ -47,7 +47,7 @@ namespace WebAPI.Controllers
         {
             GroupsRelations grRelations = new GroupsRelations();
             grRelations.GroupId = newRelations.GroupId;
-            grRelations.UserId = newRelations.GroupId;
+            grRelations.UserId = newRelations.UserId;
             grRelations.Nickname = newRelations.Nickname;
 
             this.context.GrRelations.Add(grRelations);
