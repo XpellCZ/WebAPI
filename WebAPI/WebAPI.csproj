@@ -241,6 +241,7 @@
     <None Include="Properties\PublishProfiles\Ponoma2 - Web Deploy3.pubxml" />
     <None Include="Properties\PublishProfiles\Ponoma2 - Web Deploy4.pubxml" />
     <None Include="Properties\PublishProfiles\Ponoma2 - Web Deploy5.pubxml" />
+    <None Include="Properties\PublishProfiles\Ponoma2 - Web Deploy6.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

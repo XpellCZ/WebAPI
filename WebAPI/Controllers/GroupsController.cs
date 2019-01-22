@@ -27,7 +27,7 @@ namespace WebAPI.Controllers
             List<GroupsRelations> grRelations = this.context.GrRelations.ToList();
             List<Groups> userGroups = new List<Groups>();
 
-            foreach(GroupsRelations gr in grRelations)
+            foreach (GroupsRelations gr in grRelations)
             {
                 if (gr.UserId == Id)
                 {
@@ -40,7 +40,7 @@ namespace WebAPI.Controllers
 
         }
 
-        public List<Groups> Get(int Id,bool More)
+        public List<Groups> Get(int Id, bool More)
         {
             List<GroupsRelations> grRelations = this.context.GrRelations.ToList();
             List<Groups> userGroups = new List<Groups>();
@@ -49,7 +49,7 @@ namespace WebAPI.Controllers
             {
                 int count = 0;
 
-                foreach(GroupsRelations gre in grRelations)
+                foreach (GroupsRelations gre in grRelations)
                 {
                     if (gre.GroupId == gr.GroupId)
                     {
@@ -58,10 +58,10 @@ namespace WebAPI.Controllers
                 }
 
 
-                if (gr.UserId == Id&&count>2&&More==true)
+                if (gr.UserId == Id && count > 2 && More == true)
                 {
                     userGroups.Add(this.context.Groups.Find(gr.GroupId));
-                } else if(gr.UserId == Id&&count==2&&More == false)
+                } else if (gr.UserId == Id && count == 2 && More == false)
                 {
                     userGroups.Add(this.context.Groups.Find(gr.GroupId));
                 }
@@ -69,6 +69,27 @@ namespace WebAPI.Controllers
             }
 
             return userGroups;
+
+        }
+
+        public Groups Get(string groupName)
+        {
+
+            List<Groups> groups = this.context.Groups.ToList();
+            Groups result = new Groups();
+
+            foreach (Groups gr in groups)
+            {
+                if (gr.Name == groupName)
+                {
+                    result = gr;
+
+
+                }
+
+
+            }
+            return result;
 
         }
 
@@ -103,10 +124,33 @@ namespace WebAPI.Controllers
         //Send the object in JSON format.
         public void Post(Groups newGroup)
         {
+            List<Groups> groups = this.context.Groups.ToList();
+            bool exists = false;
+
+            foreach (Groups gre in groups)
+            {
+                if (gre.Name == newGroup.Name)
+                {
+                    exists = true;
+
+
+                }
+
+
+            }
+
+
+
+
             Groups gr = new Groups();
             gr.Name = newGroup.Name;
 
-            this.context.Groups.Add(gr);
+            if (!exists)
+            {
+
+                this.context.Groups.Add(gr);
+
+            }
             this.context.SaveChanges();
 
 
